@@ -1,12 +1,8 @@
-const items = document.querySelectorAll(".reveal");
-
-const obs = new IntersectionObserver(
-  (entries) => {
-    entries.forEach((e) => {
-      if (e.isIntersecting) e.target.classList.add("is-visible");
-    });
-  },
-  { threshold: 0.15 }
-);
-
-items.forEach((el) => obs.observe(el));
+// Optional: tiny “tick” for vibe (no actual clock logic)
+const timeEl = document.querySelector(".time");
+if (timeEl) {
+  setInterval(() => {
+    timeEl.classList.add("pulse");
+    setTimeout(() => timeEl.classList.remove("pulse"), 120);
+  }, 3000);
+}
