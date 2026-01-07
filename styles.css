@@ -1,42 +1,14 @@
-/* styles.css — synced424 (WOFF2-first)
-   Expected folder layout:
+/* styles.css — synced424 (PNG-based 4:24)
+   This version assumes you're using:
+   <img class="time-img" src="./assets/424.png" alt="4:24" />
 
-   synced424.github.io/
-     index.html
-     styles.css
-     main.js
-     assets/
-       DS-DIGI.woff2
-       DS-DIGIB.woff2        (optional)
-       DS-DIGI.ttf           (optional fallback)
-       DS-DIGIB.ttf          (optional fallback)
+   and the PNG is tightly cropped around the digits (minimal padding).
 */
 
-/* Regular */
-@font-face {
-    font-family: "DS-Digital";
-    src:
-      url("./assets/DS-DIGI.woff2") format("woff2"),
-      url("./assets/DS-DIGI.ttf") format("truetype"); /* optional fallback */
-    font-weight: 400;
-    font-style: normal;
-    font-display: swap;
-  }
-  
-  /* Bold (optional) */
-  @font-face {
-    font-family: "DS-Digital";
-    src:
-      url("./assets/DS-DIGIB.woff2") format("woff2"),
-      url("./assets/DS-DIGIB.ttf") format("truetype"); /* optional fallback */
-    font-weight: 700;
-    font-style: normal;
-    font-display: swap;
-  }
-  
-  :root{
+:root{
     --bg0: #05060a;
     --bg1: #0a0b12;
+  
     --red: #ff1238;
     --white: rgba(255,255,255,0.92);
     --muted: rgba(255,255,255,0.65);
@@ -50,7 +22,7 @@
     color: var(--white);
     overflow: hidden;
   
-    /* Mostly black, with red coming from the left */
+    /* Mostly black, red coming from the left */
     background:
       radial-gradient(900px 520px at 22% 38%, rgba(255, 18, 56, 0.12), transparent 65%),
       radial-gradient(750px 480px at 70% 20%, rgba(255, 18, 56, 0.06), transparent 60%),
@@ -98,35 +70,28 @@
     box-shadow: 0 24px 80px rgba(0,0,0,0.55);
   }
   
-  .time{
-    font-family: "DS-Digital", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
-    font-weight: 400;
-    font-size: clamp(92px, 18vw, 220px);
-    line-height: 1;
-    letter-spacing: 1px;
+  /* ✅ PNG sizing that works across devices
+     - Use a tight-cropped PNG so the digits fill the image.
+     - width clamps nicely between mobile and desktop.
+  */
+  .time-img{
+    width: min(900px, 88vw);
+    max-width: 100%;
+    height: auto;
+    display: block;
   
-    color: var(--red);
-    text-shadow:
-      0 0 14px rgba(255, 18, 56, 0.55),
-      0 0 44px rgba(255, 18, 56, 0.22);
-  
-    transform: translateZ(0);
-    transition: transform 180ms ease, text-shadow 180ms ease, filter 180ms ease;
+    /* Glow vibe (adjust if your PNG already has glow baked in) */
+    filter:
+      drop-shadow(0 0 14px rgba(255, 18, 56, 0.55))
+      drop-shadow(0 0 44px rgba(255, 18, 56, 0.22));
+    transition: transform 180ms ease, filter 180ms ease;
   }
   
-  .time:hover{
+  .time-img:hover{
     transform: translateY(-2px) scale(1.01);
-    text-shadow:
-      0 0 18px rgba(255, 18, 56, 0.75),
-      0 0 70px rgba(255, 18, 56, 0.28);
-    filter: saturate(1.1);
-  }
-  
-  /* If you kept the JS pulse */
-  .time.pulse{
-    text-shadow:
-      0 0 22px rgba(255, 18, 56, 0.80),
-      0 0 90px rgba(255, 18, 56, 0.30);
+    filter:
+      drop-shadow(0 0 18px rgba(255, 18, 56, 0.75))
+      drop-shadow(0 0 70px rgba(255, 18, 56, 0.28));
   }
   
   .meta{
@@ -170,20 +135,5 @@
     text-shadow: 0 0 18px rgba(255,18,56,0.35);
   }
   
-  .dot{ color: rgba(255,255,255,0.35); }  
-  .time-img{
-    width: min(900px, 86vw);
-    height: auto;
-    display: block;
+  .dot{ color: rgba(255,255,255,0.35); }
   
-    /* optional: glow vibe similar to the text glow */
-    filter: drop-shadow(0 0 14px rgba(255, 18, 56, 0.55))
-            drop-shadow(0 0 44px rgba(255, 18, 56, 0.22));
-    transition: transform 180ms ease, filter 180ms ease;
-  }
-  
-  .time-img:hover{
-    transform: translateY(-2px) scale(1.01);
-    filter: drop-shadow(0 0 18px rgba(255, 18, 56, 0.75))
-            drop-shadow(0 0 70px rgba(255, 18, 56, 0.28));
-  }
