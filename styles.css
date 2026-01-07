@@ -1,33 +1,34 @@
-/* styles.css — synced424
-   Folder layout (based on your screenshots):
+/* styles.css — synced424 (WOFF2-first)
+   Expected folder layout:
 
    synced424.github.io/
      index.html
      styles.css
      main.js
      assets/
-       DS-DIGI.ttf
-       DS-DIGIB.ttf
-       DS-DIGII.ttf
-       DS-DIGIT.ttf
-
-   ✅ IMPORTANT (Windows): make sure “File name extensions” is turned on so you can confirm
-   the font file is really DS-DIGI.ttf (exact spelling + case).
+       DS-DIGI.woff2
+       DS-DIGIB.woff2        (optional)
+       DS-DIGI.ttf           (optional fallback)
+       DS-DIGIB.ttf          (optional fallback)
 */
 
-/* Regular (DS-DIGI.ttf) */
+/* Regular */
 @font-face {
     font-family: "DS-Digital";
-    src: url("./assets/DS-DIGI.ttf") format("truetype");
+    src:
+      url("./assets/DS-DIGI.woff2") format("woff2"),
+      url("./assets/DS-DIGI.ttf") format("truetype"); /* optional fallback */
     font-weight: 400;
     font-style: normal;
     font-display: swap;
   }
   
-  /* Bold (DS-DIGIB.ttf) — optional but harmless if you keep it */
+  /* Bold (optional) */
   @font-face {
     font-family: "DS-Digital";
-    src: url("./assets/DS-DIGIB.ttf") format("truetype");
+    src:
+      url("./assets/DS-DIGIB.woff2") format("woff2"),
+      url("./assets/DS-DIGIB.ttf") format("truetype"); /* optional fallback */
     font-weight: 700;
     font-style: normal;
     font-display: swap;
@@ -36,7 +37,6 @@
   :root{
     --bg0: #05060a;
     --bg1: #0a0b12;
-  
     --red: #ff1238;
     --white: rgba(255,255,255,0.92);
     --muted: rgba(255,255,255,0.65);
@@ -50,7 +50,7 @@
     color: var(--white);
     overflow: hidden;
   
-    /* Mostly black, hint of red from the left */
+    /* Mostly black, with red coming from the left */
     background:
       radial-gradient(900px 520px at 22% 38%, rgba(255, 18, 56, 0.12), transparent 65%),
       radial-gradient(750px 480px at 70% 20%, rgba(255, 18, 56, 0.06), transparent 60%),
@@ -99,7 +99,6 @@
   }
   
   .time{
-    /* ✅ this is the DS Digital hookup */
     font-family: "DS-Digital", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
     font-weight: 400;
     font-size: clamp(92px, 18vw, 220px);
@@ -123,7 +122,7 @@
     filter: saturate(1.1);
   }
   
-  /* Optional pulse class (if you added the JS pulse) */
+  /* If you kept the JS pulse */
   .time.pulse{
     text-shadow:
       0 0 22px rgba(255, 18, 56, 0.80),
@@ -171,5 +170,4 @@
     text-shadow: 0 0 18px rgba(255,18,56,0.35);
   }
   
-  .dot{ color: rgba(255,255,255,0.35); }
-  
+  .dot{ color: rgba(255,255,255,0.35); }  
