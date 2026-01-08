@@ -5,26 +5,55 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="description" content="synced424 — connect 4 a day" />
   <title>synced424</title>
-  <link rel="stylesheet" href="styles.css" />
+
+  <!-- Cache-bust so mobile doesn't keep old CSS -->
+  <link rel="stylesheet" href="styles.css?v=11" />
 </head>
 <body>
   <main class="wrap">
-    <section class="hero" aria-label="synced424 prelaunch">
+    <section class="hero-grid" aria-label="synced424 prelaunch">
+      <!-- LEFT CARD -->
+      <div class="card">
         <img class="time-img" src="./assets/424.png" alt="4:24" />
 
-      <div class="meta">
-        <div class="brand">synced424</div>
-        <div class="tagline">connect 4 a day</div>
+        <div class="meta">
+          <div class="brand">synced424</div>
+          <div class="tagline">connect 4 a day</div>
 
-        <div class="links">
-          <a href="https://www.linkedin.com/company/synced424/" target="_blank" rel="noreferrer">LinkedIn</a>
-          <span class="dot" aria-hidden="true">•</span>
-          <a href="mailto:synced424@gmail.com">synced424@gmail.com</a>
+          <div class="links">
+            <a href="https://www.linkedin.com/company/synced424/" target="_blank" rel="noreferrer">LinkedIn</a>
+            <span class="dot" aria-hidden="true">•</span>
+            <a href="mailto:synced424@gmail.com">synced424@gmail.com</a>
+          </div>
         </div>
+      </div>
+
+      <!-- RIGHT CARD -->
+      <div class="card qr-card">
+        <div class="qr-title">Early Access</div>
+        <div class="qr-subtitle">Scan to join the waitlist</div>
+
+        <!-- Zero-JS QR (always works) -->
+        <img
+          class="qr-img"
+          alt="QR code to join waitlist"
+          src="https://api.qrserver.com/v1/create-qr-code/?size=720x720&data=https%3A%2F%2Fdocs.google.com%2Fforms%2Fd%2Fe%2F1FAIpQLSeaEsIrxFXry1Jiq8_QXxaJK8X5VzfqwbXGSRgt3gNcthtwxg%2Fviewform%3Fusp%3Ddialog"
+        />
+
+        <!-- Hard-link directly to your Google Form -->
+        <a
+          class="qr-link"
+          href="https://docs.google.com/forms/d/e/1FAIpQLSeaEsIrxFXry1Jiq8_QXxaJK8X5VzfqwbXGSRgt3gNcthtwxg/viewform?usp=dialog"
+          target="_blank"
+          rel="noreferrer"
+        >
+          Join waitlist
+        </a>
       </div>
     </section>
   </main>
 
-  <script src="main.js"></script>
+  <!-- Cache-bust so mobile doesn't keep old JS -->
+  <script src="main.js?v=11"></script>
 </body>
 </html>
