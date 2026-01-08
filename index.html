@@ -9,22 +9,39 @@
 </head>
 <body>
   <main class="wrap">
-    <section class="hero" aria-label="synced424 prelaunch">
+    <section class="hero-grid" aria-label="synced424 prelaunch">
+      <!-- LEFT: Logo + brand + links -->
+      <div class="card">
         <img class="time-img" src="./assets/424.png" alt="4:24" />
 
-      <div class="meta">
-        <div class="brand">synced424</div>
-        <div class="tagline">connect 4 a day</div>
+        <div class="meta">
+          <div class="brand">synced424</div>
+          <div class="tagline">connect 4 a day</div>
 
-        <div class="links">
-          <a href="https://www.linkedin.com/company/synced424/" target="_blank" rel="noreferrer">LinkedIn</a>
-          <span class="dot" aria-hidden="true">•</span>
-          <a href="mailto:synced424@gmail.com">synced424@gmail.com</a>
+          <div class="links">
+            <a href="https://www.linkedin.com/company/synced424/" target="_blank" rel="noreferrer">LinkedIn</a>
+            <span class="dot" aria-hidden="true">•</span>
+            <a href="mailto:synced424@gmail.com">synced424@gmail.com</a>
+          </div>
         </div>
+      </div>
+
+      <!-- RIGHT: QR (same card size) -->
+      <div class="card qr-card">
+        <div class="qr-title">Early Access</div>
+        <div class="qr-subtitle">Scan to join the waitlist</div>
+
+        <canvas id="qrcode" class="qr" aria-label="QR code for waitlist"></canvas>
+
+        <a id="earlyLink" class="qr-link" href="#" target="_blank" rel="noreferrer">
+          Join waitlist
+        </a>
       </div>
     </section>
   </main>
 
+  <!-- QR library (client-side, works on GitHub Pages) -->
+  <script src="https://cdn.jsdelivr.net/npm/qrcode@1.5.3/build/qrcode.min.js"></script>
   <script src="main.js"></script>
 </body>
 </html>
