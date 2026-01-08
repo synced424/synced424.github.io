@@ -7,7 +7,7 @@
   <title>synced424</title>
 
   <!-- Cache-bust so mobile doesn't keep old CSS -->
-  <link rel="stylesheet" href="styles.css?v=11" />
+  <link rel="stylesheet" href="styles.css?v=12" />
 </head>
 <body>
   <main class="wrap">
@@ -28,19 +28,9 @@
         </div>
       </div>
 
-      <!-- RIGHT CARD -->
+      <!-- RIGHT CARD (UPDATED ORDER) -->
       <div class="card qr-card">
-        <div class="qr-title">Early Access</div>
-        <div class="qr-subtitle">Scan to join the waitlist</div>
-
-        <!-- Zero-JS QR (always works) -->
-        <img
-          class="qr-img"
-          alt="QR code to join waitlist"
-          src="https://api.qrserver.com/v1/create-qr-code/?size=720x720&data=https%3A%2F%2Fdocs.google.com%2Fforms%2Fd%2Fe%2F1FAIpQLSeaEsIrxFXry1Jiq8_QXxaJK8X5VzfqwbXGSRgt3gNcthtwxg%2Fviewform%3Fusp%3Ddialog"
-        />
-
-        <!-- Hard-link directly to your Google Form -->
+        <!-- Button ABOVE the QR -->
         <a
           class="qr-link"
           href="https://docs.google.com/forms/d/e/1FAIpQLSeaEsIrxFXry1Jiq8_QXxaJK8X5VzfqwbXGSRgt3gNcthtwxg/viewform?usp=dialog"
@@ -49,11 +39,22 @@
         >
           Join waitlist
         </a>
+
+        <!-- Zero-JS QR (always works) -->
+        <img
+          class="qr-img"
+          alt="QR code to join waitlist"
+          src="https://api.qrserver.com/v1/create-qr-code/?size=720x720&data=https%3A%2F%2Fdocs.google.com%2Fforms%2Fd%2Fe%2F1FAIpQLSeaEsIrxFXry1Jiq8_QXxaJK8X5VzfqwbXGSRgt3gNcthtwxg%2Fviewform%3Fusp%3Ddialog"
+        />
+
+        <!-- Text BELOW the QR -->
+        <div class="qr-title">Early Access</div>
+        <div class="qr-subtitle">Scan to join the waitlist</div>
       </div>
     </section>
   </main>
 
   <!-- Cache-bust so mobile doesn't keep old JS -->
-  <script src="main.js?v=11"></script>
+  <script src="main.js?v=12"></script>
 </body>
 </html>
