@@ -1,3 +1,10 @@
+/* styles.css — synced424 (PNG-based 4:24)
+   This version assumes you're using:
+   <img class="time-img" src="./assets/424.png" alt="4:24" />
+
+   and the PNG is tightly cropped around the digits (minimal padding).
+*/
+
 :root{
     --bg0: #05060a;
     --bg1: #0a0b12;
@@ -49,18 +56,7 @@
     padding: 24px;
   }
   
-  /* Two cards side-by-side, same size */
-  .hero-grid{
-    width: min(1200px, 100%);
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 22px;
-    align-items: stretch;
-  }
-  
-  /* Shared card style (used for both left + right so they match) */
-  .card{
-    height: 100%;
+  .hero{
     display: grid;
     gap: 18px;
     justify-items: center;
@@ -74,14 +70,17 @@
     box-shadow: 0 24px 80px rgba(0,0,0,0.55);
   }
   
-  /* PNG-based 4:24 */
+  /* ✅ PNG sizing that works across devices
+     - Use a tight-cropped PNG so the digits fill the image.
+     - width clamps nicely between mobile and desktop.
+  */
   .time-img{
     width: min(900px, 88vw);
     max-width: 100%;
     height: auto;
     display: block;
   
-    /* Glow vibe (adjust if your PNG already includes glow) */
+    /* Glow vibe (adjust if your PNG already has glow baked in) */
     filter:
       drop-shadow(0 0 14px rgba(255, 18, 56, 0.55))
       drop-shadow(0 0 44px rgba(255, 18, 56, 0.22));
@@ -137,64 +136,4 @@
   }
   
   .dot{ color: rgba(255,255,255,0.35); }
-  
-  /* QR card */
-  .qr-card{
-    align-content: center;
-  }
-  
-  .qr-title{
-    font-size: 18px;
-    letter-spacing: 0.08em;
-    color: rgba(255,255,255,0.88);
-  }
-  
-  .qr-subtitle{
-    font-size: 14px;
-    color: rgba(255,255,255,0.62);
-    margin-top: -6px;
-  }
-  
-  /* Canvas will be drawn at high resolution in JS; CSS controls displayed size */
-  .qr{
-    width: min(320px, 70vw);
-    max-width: 100%;
-    aspect-ratio: 1 / 1;
-    height: auto;
-  
-    background: rgba(255,255,255,0.06);
-    border-radius: 16px;
-    padding: 14px;
-  
-    /* make edges look crisp */
-    image-rendering: pixelated;
-  }
-  
-  .qr-link{
-    margin-top: 6px;
-    color: rgba(255,255,255,0.85);
-    text-decoration: none;
-    padding: 10px 14px;
-    border-radius: 999px;
-    border: 1px solid rgba(255,255,255,0.10);
-    background: rgba(255,255,255,0.03);
-    transition: color 160ms ease, text-shadow 160ms ease, transform 160ms ease;
-  }
-  
-  .qr-link:hover{
-    color: #fff;
-    text-shadow: 0 0 18px rgba(255,18,56,0.35);
-    transform: translateY(-1px);
-  }
-  
-  /* Mobile: stack vertically */
-  @media (max-width: 900px){
-    body{ overflow: auto; } /* allow scroll on smaller screens */
-    .hero-grid{
-      grid-template-columns: 1fr;
-    }
-    .qr{
-      width: min(320px, 82vw);
-    }
-  }
   
