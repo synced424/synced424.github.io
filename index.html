@@ -7,7 +7,7 @@
   <title>synced424</title>
 
   <!-- Cache-bust so mobile doesn't keep old CSS -->
-  <link rel="stylesheet" href="styles.css?v=12" />
+  <link rel="stylesheet" href="styles.css?v=13" />
 </head>
 <body>
   <main class="wrap">
@@ -20,20 +20,19 @@
           <div class="brand">synced424</div>
           <div class="tagline">connect 4 a day</div>
 
+          <!-- Removed Ambassador Program link from this pill -->
           <div class="links">
             <a href="https://www.linkedin.com/company/synced424/" target="_blank" rel="noreferrer">LinkedIn</a>
             <span class="dot" aria-hidden="true">•</span>
             <a href="https://www.instagram.com/synced_424/" target="_blank" rel="noreferrer">Instagram</a>
             <span class="dot" aria-hidden="true">•</span>
             <a href="mailto:synced424@gmail.com">synced424@gmail.com</a>
-            <a class="amb-link" href="./ambassador.html">Ambassador Program</a>
           </div>
         </div>
       </div>
 
-      <!-- RIGHT CARD (UPDATED ORDER) -->
+      <!-- RIGHT CARD -->
       <div class="card qr-card">
-        <!-- Button ABOVE the QR -->
         <a
           class="qr-link"
           href="https://docs.google.com/forms/d/e/1FAIpQLSeaEsIrxFXry1Jiq8_QXxaJK8X5VzfqwbXGSRgt3gNcthtwxg/viewform?usp=dialog"
@@ -43,28 +42,31 @@
           Join waitlist
         </a>
 
-        <!-- Zero-JS QR (always works) -->
         <img
           class="qr-img"
           alt="QR code to join waitlist"
           src="https://api.qrserver.com/v1/create-qr-code/?size=720x720&data=https%3A%2F%2Fdocs.google.com%2Fforms%2Fd%2Fe%2F1FAIpQLSeaEsIrxFXry1Jiq8_QXxaJK8X5VzfqwbXGSRgt3gNcthtwxg%2Fviewform%3Fusp%3Ddialog"
         />
 
-        <!-- Text BELOW the QR -->
         <div class="qr-title">Early Access</div>
         <div class="qr-subtitle">Scan to join the waitlist</div>
       </div>
-      
-      <!-- AMBASSADOR CARD -->
+
+      <!-- THIRD CARD (CENTERED UNDER THE TWO) -->
       <div class="card ambassador-card">
-        <a class="ambassador-link" href="./ambassador.html">
-          Synced424 Ambassador Program
+        <div class="amb-header">
+          <div class="amb-kicker">New</div>
+          <div class="amb-title">Synced424 Ambassador Program</div>
+          <div class="amb-subtitle">Help launch on campus. Get early access.</div>
+        </div>
+
+        <a class="amb-btn" href="./ambassador.html">
+          View program
         </a>
       </div>
     </section>
   </main>
 
-  <!-- Cache-bust so mobile doesn't keep old JS -->
-  <script src="main.js?v=12"></script>
+  <script src="main.js?v=13"></script>
 </body>
 </html>
