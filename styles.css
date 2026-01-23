@@ -207,72 +207,32 @@ body::before{
 }
 
 /* Third card spans both columns, but is a centered fixed-width card */
+/* Third card spans the full row, but content is centered */
 .ambassador-card{
-  grid-column: 1 / -1;              /* spans both columns */
-  justify-self: center;             /* centers the card */
-  width: min(760px, 100%);          /* makes it feel intentional */
+  grid-column: 1 / -1;        /* spans both columns = full row */
+  width: 100%;                /* fill the row so no “gap” */
+  justify-self: stretch;      /* stretch across grid */
+
   min-height: 170px;
 
   display: grid;
-  gap: 14px;
-  align-content: center;
-  justify-items: center;
+  place-items: center;        /* center inner content */
   text-align: center;
+
+  /* keep your existing card styling (if you're using .card already),
+     so no need to repeat border/background here */
 }
 
+/* Inner centered “content block” inside the full-width card */
 .amb-header{
+  width: min(760px, 100%);    /* this is the centered chunk */
   display: grid;
   gap: 6px;
   justify-items: center;
 }
 
-.amb-kicker{
-  font-size: 12px;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: rgba(255,255,255,0.62);
-}
-
-.amb-title{
-  font-size: 26px;                  /* BIG pleasing headline */
-  letter-spacing: 0.02em;
-  color: rgba(255,255,255,0.92);
-  text-shadow: 0 0 22px rgba(255,18,56,0.18);
-}
-
-.amb-subtitle{
-  font-size: 14px;
-  color: rgba(255,255,255,0.68);
-}
-
-/* Button link like the QR one */
+/* Make the button align with the centered width too */
 .amb-btn{
-  margin-top: 6px;
-  color: rgba(255,255,255,0.88);
-  text-decoration: none;
-
-  padding: 10px 14px;
-  border-radius: 999px;
-  border: 1px solid rgba(255,255,255,0.10);
-  background: rgba(255,255,255,0.03);
-
-  transition: color 160ms ease, text-shadow 160ms ease, transform 160ms ease, border-color 160ms ease;
+  width: fit-content;
 }
 
-.amb-btn:hover{
-  color: #fff;
-  border-color: rgba(255,255,255,0.22);
-  text-shadow: 0 0 18px rgba(255,18,56,0.35);
-  transform: translateY(-1px);
-}
-
-/* Mobile: stack vertically */
-@media (max-width: 900px){
-  body{ overflow: auto; }
-  .hero-grid{ grid-template-columns: 1fr; }
-  .ambassador-card{
-    grid-column: auto;
-    width: 100%;
-  }
-  .amb-title{ font-size: 22px; }
-}
