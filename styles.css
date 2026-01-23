@@ -49,16 +49,14 @@
   }
   
   /* Two equal cards centered */
-.hero-grid{
-  width: min(1200px, 100%);
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-
-  column-gap: 4px;  /* <-- removes the gap between the two cards */
-  row-gap: 22px;    /* <-- keeps spacing when it stacks on mobile */
-
-  align-items: stretch;
-}
+  .hero-grid{
+    width: min(1200px, 100%);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 0px;
+    row-gap: 22px;
+    align-items: stretch;
+  }
   
   /* Shared card styling so both sides match size */
   .card{
