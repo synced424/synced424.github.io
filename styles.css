@@ -292,3 +292,28 @@
   text-shadow: 0 0 18px rgba(255,18,56,0.35);
 }
 
+.footer-link{
+  margin-top: 16px;
+  display: inline-block;
+  justify-self: center;
+
+  color: rgba(255,255,255,0.80);
+  text-decoration: none;
+  font-size: 14px;
+  letter-spacing: 0.06em;
+
+  padding: 8px 12px;
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,0.10);
+  background: rgba(255,255,255,0.02);
+
+  transition: transform 160ms ease, color 160ms ease, text-shadow 160ms ease, border-color 160ms ease;
+}
+
+.footer-link:hover{
+  transform: translateY(-1px);
+  color: #fff;
+  border-color: rgba(255,255,255,0.22);
+  text-shadow: 0 0 18px rgba(255,18,56,0.35);
+}
+
