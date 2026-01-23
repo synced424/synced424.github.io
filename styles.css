@@ -297,3 +297,10 @@
 .page-body h3{ margin: 16px 0 8px; font-size: 14px; letter-spacing: 0.08em; color: rgba(255,255,255,0.88); }
 .page-body ul{ margin: 0 0 10px 18px; padding: 0; color: rgba(255,255,255,0.78); line-height: 1.55; }
 
+.amb-link{
+  text-decoration: none;
+}
+.amb-link:hover,
+.amb-link:focus{
+  text-decoration: none;
+}
