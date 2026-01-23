@@ -54,7 +54,7 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
 
-  column-gap: 0px;  /* <-- removes the gap between the two cards */
+  column-gap: 4px;  /* <-- removes the gap between the two cards */
   row-gap: 22px;    /* <-- keeps spacing when it stacks on mobile */
 
   align-items: stretch;
