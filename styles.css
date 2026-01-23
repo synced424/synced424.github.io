@@ -191,48 +191,199 @@ body::before{
 /* =========================================================
    Ambassador CARD (new third card)
    ========================================================= */
+.ambassador-card{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  min-height: 140px;
+}
+
+.ambassador-link{
+  width: 100%;
+  text-decoration: none;
+  color: rgba(255,255,255,0.88);
+  font-size: 16px;
+  letter-spacing: 0.04em;
+
+  padding: 18px 16px;
+  border-radius: 18px;
+  border: 1px solid rgba(255,255,255,0.10);
+  background: rgba(255,255,255,0.03);
+
+  transition: transform 160ms ease, border-color 160ms ease, color 160ms ease, text-shadow 160ms ease;
+}
+
+.ambassador-link:hover{
+  transform: translateY(-1px);
+  border-color: rgba(255,255,255,0.22);
+  color: #fff;
+  text-shadow: 0 0 18px rgba(255,18,56,0.35);
+}
+
+/* If you ever put the ambassador link inside the pill, remove underline/line completely */
+.links .amb-link,
+.links .amb-link:hover,
+.links .amb-link:focus{
+  text-decoration: none !important;
+  border-bottom: none !important;
+  box-shadow: none !important;
+}
+
 /* =========================================================
-   Layout rules
-   Desktop: 2 cards on top, centered Ambassador card below
-   Mobile: stack vertically
+   Layout rules (3 cards desktop, stacked mobile with ambassador LAST)
+   DOM order can be: left card, ambassador card, qr card
+   Mobile will force: left, qr, ambassador
    ========================================================= */
 
-/* Default (desktop/tablet): two columns */
-.hero-grid{
-  width: min(1200px, 100%);
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 22px;
-  align-items: stretch;
+/* Desktop: Left | Ambassador | QR */
+@media (min-width: 901px){
+  .hero-grid{
+    grid-template-columns: 1fr 0.85fr 1fr;
+  }
+
+  /* place by order: first card = left, ambassador = middle, qr = right */
+  .hero-grid > .card:first-child{ grid-column: 1; }
+  .hero-grid > .ambassador-card{ grid-column: 2; }
+  .hero-grid > .qr-card{ grid-column: 3; }
 }
 
-/* Third card spans both columns, but is a centered fixed-width card */
-/* Third card spans the full row, but content is centered */
-.ambassador-card{
-  grid-column: 1 / -1;        /* spans both columns = full row */
-  width: 100%;                /* fill the row so no “gap” */
-  justify-self: stretch;      /* stretch across grid */
+/* Mobile: stack vertically, stay centered (Left, QR, Ambassador) */
+@media (max-width: 900px){
+  body{ overflow: auto; }
 
-  min-height: 170px;
+  .hero-grid{
+    grid-template-columns: 1fr;
+  }
+
+  /* Force stack order regardless of DOM order */
+  .hero-grid > .card:first-child{ grid-row: 1; }
+  .hero-grid > .qr-card{ grid-row: 2; }
+  .hero-grid > .ambassador-card{ grid-row: 3; }
+
+  .qr-img{ width: min(340px, 86vw); }
+  .links{ width: min(640px, 94%); }
+}
+
+/* ===== Ambassador page additions ===== */
+.page-card{
+  width: min(960px, 100%);
+  max-height: min(820px, calc(100vh - 48px));
+  overflow: auto;
 
   display: grid;
-  place-items: center;        /* center inner content */
+  gap: 14px;
+  justify-items: center;
   text-align: center;
 
-  /* keep your existing card styling (if you're using .card already),
-     so no need to repeat border/background here */
+  padding: 26px 20px;
+  border-radius: 24px;
+  border: 1px solid rgba(255,255,255,0.06);
+  background: rgba(0,0,0,0.18);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 24px 80px rgba(0,0,0,0.55);
 }
 
-/* Inner centered “content block” inside the full-width card */
-.amb-header{
-  width: min(760px, 100%);    /* this is the centered chunk */
-  display: grid;
-  gap: 6px;
-  justify-items: center;
+/* Make logo a bit smaller on this page */
+.page-logo{
+  width: min(520px, 86vw);
 }
 
-/* Make the button align with the centered width too */
-.amb-btn{
-  width: fit-content;
+.page-title{
+  font-size: 22px;
+  letter-spacing: 0.06em;
+  color: rgba(255,255,255,0.92);
 }
 
+.page-subtitle{
+  font-size: 14px;
+  color: rgba(255,255,255,0.62);
+  margin-top: -6px;
+}
+
+/* Main scrollable content */
+.page-body{
+  width: min(760px, 100%);
+  text-align: left;
+
+  padding: 14px 14px;
+  border-radius: 18px;
+  border: 1px solid rgba(255,255,255,0.08);
+  background: rgba(255,255,255,0.03);
+}
+
+.page-body h2{
+  margin: 0 0 10px 0;
+  font-size: 16px;
+  letter-spacing: 0.06em;
+  color: rgba(255,255,255,0.9);
+}
+
+.page-body p{
+  margin: 0;
+  line-height: 1.55;
+  color: rgba(255,255,255,0.78);
+}
+
+/* Back link */
+.page-back{
+  margin-top: 6px;
+  color: rgba(255,255,255,0.85);
+  text-decoration: none;
+
+  padding: 10px 14px;
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,0.10);
+  background: rgba(255,255,255,0.03);
+  transition: transform 160ms ease, text-shadow 160ms ease, color 160ms ease;
+}
+
+.page-back:hover{
+  transform: translateY(-1px);
+  color: #fff;
+  text-shadow: 0 0 18px rgba(255,18,56,0.35);
+}
+
+/* page link for ambassadors (if you still use it somewhere) */
+.page-link{
+  margin-top: 10px;
+  color: rgba(255,255,255,0.80);
+  text-decoration: none;
+  font-size: 14px;
+  letter-spacing: 0.06em;
+  border-bottom: 1px solid rgba(255,255,255,0.22);
+  padding-bottom: 2px;
+  transition: color 160ms ease, text-shadow 160ms ease, border-color 160ms ease;
+}
+
+.page-link:hover{
+  color: #fff;
+  border-color: rgba(255,255,255,0.5);
+  text-shadow: 0 0 18px rgba(255,18,56,0.35);
+}
+
+/* Bullet points */
+.page-body h3{
+  margin: 16px 0 8px;
+  font-size: 14px;
+  letter-spacing: 0.08em;
+  color: rgba(255,255,255,0.88);
+}
+
+.page-body ul{
+  margin: 0 0 10px 18px;
+  padding: 0;
+  color: rgba(255,255,255,0.78);
+  line-height: 1.55;
+}
+
+.amb-link{
+  text-decoration: none;
+  border-bottom: none;
+}
+
+.amb-link:hover,
+.amb-link:focus{
+  text-decoration: none;
+  border-bottom: none;
+}
