@@ -11,56 +11,57 @@
 </head>
 <body>
   <main class="wrap">
-    <section class="hero-grid" aria-label="synced424 prelaunch">
-      <!-- LEFT CARD -->
-      <div class="card">
-        <img class="time-img" src="./assets/424.png" alt="4:24" />
+<section class="hero-grid" aria-label="synced424 prelaunch">
+  <!-- LEFT CARD -->
+  <div class="card">
+    <img class="time-img" src="./assets/424.png" alt="4:24" />
 
-        <div class="meta">
-          <div class="brand">synced424</div>
-          <div class="tagline">connect 4 a day</div>
+    <div class="meta">
+      <div class="brand">synced424</div>
+      <div class="tagline">connect 4 a day</div>
 
-          <div class="links">
-            <a href="https://www.linkedin.com/company/synced424/" target="_blank" rel="noreferrer">LinkedIn</a>
-            <span class="dot" aria-hidden="true">•</span>
-            <a href="https://www.instagram.com/synced_424/" target="_blank" rel="noreferrer">Instagram</a>
-            <span class="dot" aria-hidden="true">•</span>
-            <a href="mailto:synced424@gmail.com">synced424@gmail.com</a>
-          </div>
-        </div>
+      <div class="links">
+        <a href="https://www.linkedin.com/company/synced424/" target="_blank" rel="noreferrer">LinkedIn</a>
+        <span class="dot" aria-hidden="true">•</span>
+        <a href="https://www.instagram.com/synced_424/" target="_blank" rel="noreferrer">Instagram</a>
+        <span class="dot" aria-hidden="true">•</span>
+        <a href="mailto:synced424@gmail.com">synced424@gmail.com</a>
       </div>
+    </div>
+  </div>
 
-      <!-- RIGHT CARD (UPDATED ORDER) -->
-      <div class="card qr-card">
-        <!-- Button ABOVE the QR -->
-        <a
-          class="qr-link"
-          href="https://docs.google.com/forms/d/e/1FAIpQLSeaEsIrxFXry1Jiq8_QXxaJK8X5VzfqwbXGSRgt3gNcthtwxg/viewform?usp=dialog"
-          target="_blank"
-          rel="noreferrer"
-        >
-          Join waitlist
-        </a>
+  <!-- RIGHT CARD -->
+  <div class="card qr-card">
+    <a
+      class="qr-link"
+      href="https://docs.google.com/forms/d/e/1FAIpQLSeaEsIrxFXry1Jiq8_QXxaJK8X5VzfqwbXGSRgt3gNcthtwxg/viewform?usp=dialog"
+      target="_blank"
+      rel="noreferrer"
+    >
+      Join waitlist
+    </a>
 
-        <!-- Zero-JS QR (always works) -->
-        <img
-          class="qr-img"
-          alt="QR code to join waitlist"
-          src="https://api.qrserver.com/v1/create-qr-code/?size=720x720&data=https%3A%2F%2Fdocs.google.com%2Fforms%2Fd%2Fe%2F1FAIpQLSeaEsIrxFXry1Jiq8_QXxaJK8X5VzfqwbXGSRgt3gNcthtwxg%2Fviewform%3Fusp%3Ddialog"
-        />
+    <img
+      class="qr-img"
+      alt="QR code to join waitlist"
+      src="https://api.qrserver.com/v1/create-qr-code/?size=720x720&data=https%3A%2F%2Fdocs.google.com%2Fforms%2Fd%2Fe%2F1FAIpQLSeaEsIrxFXry1Jiq8_QXxaJK8X5VzfqwbXGSRgt3gNcthtwxg%2Fviewform%3Fusp%3Ddialog"
+    />
 
-        <!-- Text BELOW the QR -->
-        <div class="qr-title">Early Access</div>
-        <div class="qr-subtitle">Scan to join the waitlist</div>
-      </div>
-      
-      <!-- AMBASSADOR CARD -->
-      <div class="card ambassador-card">
-        <a class="ambassador-link" href="./ambassador.html">
-          Synced424 Ambassador Program
-        </a>
-      </div>
-    </section>
+    <div class="qr-title">Early Access</div>
+    <div class="qr-subtitle">Scan to join the waitlist</div>
+  </div>
+
+  <!-- NEW: AMBASSADOR CARD as the 3rd tile -->
+  <div class="card ambassador-card">
+    <div class="amb-header">
+      <div class="amb-title">Synced424 Ambassador Program</div>
+      <div class="amb-subtitle">Help launch Synced424 on campus</div>
+
+      <a class="amb-btn" href="./ambassador.html">Learn more</a>
+    </div>
+  </div>
+</section>
+
   </main>
 
   <!-- Cache-bust so mobile doesn't keep old JS -->

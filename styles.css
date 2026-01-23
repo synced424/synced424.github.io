@@ -75,10 +75,14 @@ body::before{
 
 /* Left logo image */
 .time-img{
-  width: min(900px, 88vw);
+  width: 100%;
   max-width: 100%;
   height: auto;
   display: block;
+
+  /* cap it so the left card doesn't dominate on desktop */
+  max-height: 320px;
+  object-fit: contain;
 
   filter:
     drop-shadow(0 0 14px rgba(255, 18, 56, 0.55))
@@ -192,33 +196,43 @@ body::before{
    Ambassador CARD (new third card)
    ========================================================= */
 .ambassador-card{
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  min-height: 140px;
+  gap: 12px;
 }
 
-.ambassador-link{
-  width: 100%;
-  text-decoration: none;
-  color: rgba(255,255,255,0.88);
-  font-size: 16px;
-  letter-spacing: 0.04em;
+.amb-header{
+  display: grid;
+  gap: 10px;
+  justify-items: center;
+  text-align: center;
+}
 
-  padding: 18px 16px;
-  border-radius: 18px;
+.amb-title{
+  font-size: 18px;
+  letter-spacing: 0.06em;
+  color: rgba(255,255,255,0.92);
+}
+
+.amb-subtitle{
+  font-size: 14px;
+  color: rgba(255,255,255,0.62);
+  margin-top: -4px;
+}
+
+.amb-btn{
+  margin-top: 6px;
+  color: rgba(255,255,255,0.88);
+  text-decoration: none;
+  padding: 10px 14px;
+  border-radius: 999px;
   border: 1px solid rgba(255,255,255,0.10);
   background: rgba(255,255,255,0.03);
-
-  transition: transform 160ms ease, border-color 160ms ease, color 160ms ease, text-shadow 160ms ease;
+  transition: color 160ms ease, text-shadow 160ms ease, transform 160ms ease;
 }
 
-.ambassador-link:hover{
-  transform: translateY(-1px);
-  border-color: rgba(255,255,255,0.22);
+.amb-btn:hover{
   color: #fff;
   text-shadow: 0 0 18px rgba(255,18,56,0.35);
+  transform: translateY(-1px);
 }
 
 /* If you ever put the ambassador link inside the pill, remove underline/line completely */
@@ -231,24 +245,18 @@ body::before{
 }
 
 /* =========================================================
-   Layout rules (3 cards desktop, stacked mobile with ambassador LAST)
-   DOM order can be: left card, ambassador card, qr card
-   Mobile will force: left, qr, ambassador
+   Layout rules
+   Desktop: 3 equal tiles
+   Mobile: stack vertically
    ========================================================= */
 
-/* Desktop: Left | Ambassador | QR */
 @media (min-width: 901px){
   .hero-grid{
-    grid-template-columns: 1fr 0.85fr 1fr;
+    grid-template-columns: repeat(3, 1fr);
   }
-
-  /* place by order: first card = left, ambassador = middle, qr = right */
-  .hero-grid > .card:first-child{ grid-column: 1; }
-  .hero-grid > .ambassador-card{ grid-column: 2; }
-  .hero-grid > .qr-card{ grid-column: 3; }
 }
 
-/* Mobile: stack vertically, stay centered (Left, QR, Ambassador) */
+/* Mobile: stack vertically, stay centered */
 @media (max-width: 900px){
   body{ overflow: auto; }
 
@@ -256,13 +264,9 @@ body::before{
     grid-template-columns: 1fr;
   }
 
-  /* Force stack order regardless of DOM order */
-  .hero-grid > .card:first-child{ grid-row: 1; }
-  .hero-grid > .qr-card{ grid-row: 2; }
-  .hero-grid > .ambassador-card{ grid-row: 3; }
-
   .qr-img{ width: min(340px, 86vw); }
   .links{ width: min(640px, 94%); }
+  .time-img{ max-height: none; }
 }
 
 /* ===== Ambassador page additions ===== */
